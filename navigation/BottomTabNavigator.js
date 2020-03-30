@@ -1,8 +1,26 @@
 import * as React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
+import LoginScreen from '../screens/login';
+import RegisterScreen from '../screens/login/register'
+
+// const AuthNavigator = createStackNavigator({
+//   Login: {
+//     screen: LoginScreen,
+//     options: {
+//       title: "Login"
+//     }
+//   },
+//   Register: {
+//     screen: RegisterScreen,
+//     options: {
+//       title: "Register"
+//     }
+//   }
+// });
 
 const BottomTab = createBottomTabNavigator();
 const INITIAL_ROUTE_NAME = 'Home';
@@ -19,16 +37,16 @@ export default function BottomTabNavigator({ navigation, route }) {
         name="Home"
         component={HomeScreen}
         options={{
-          title: 'Get Started',
-          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-code-working" />,
+          title: 'Home',
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-home" />,
         }}
       />
       <BottomTab.Screen
         name="Links"
         component={LinksScreen}
         options={{
-          title: 'Resources',
-          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-book" />,
+          title: 'Collections',
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-bookmark" />,
         }}
       />
     </BottomTab.Navigator>
